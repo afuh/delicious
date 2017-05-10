@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  .conteiner
+    ul
+    - const list = ["Uno", "Dos", "Tres", "Cuatro", "Cinco", "Seis"]
+    - for (var x = 0; x < 4; x++)
+      li item#{x}
+        each item in list
+          li= item
+      img.dog(src="#" alt=`${a}`)
+    h1 ola k ase #{name}
+  .sales
+    h2 sale ends in #{h.moment().endOf('hour').fromNow()}
