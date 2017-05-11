@@ -8,20 +8,20 @@ const storeSchema = new mongoose.Schema({
   name: {
     type: String,
     trim: true,
-    required: 'Please enter a store name!'
+    required: 'Please enter a store name!',
   },
   slug: String,
   description: {
     type: String,
-    trim: true
+    trim: true,
   },
-  tags: [String]
+  tags: [String],
 });
 
-storeSchema.pre('save', function(next) {
+storeSchema.pre('save', function (next) {
   if (!this.isModified('name')) {
-    next(); //skip it
-    return; //stop this funciton
+    next(); // skip it
+    return; // stop this funciton
   }
   this.slug = slug(this.name);
   next();
