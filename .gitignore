@@ -5,4 +5,4 @@ node_modules/
 haters/
 variables.env
 variables.env.now
-public
+dist
