@@ -42,12 +42,14 @@
   &__map {
     width: calc(100% + 6rem);
     max-width: none;
+    max-height: 260px;
     margin-top: -3rem;
     margin-left: -3rem;
   }
   &__location {
     margin: 0;
-    margin-top: -3rem;
+    // margin-top: -3rem;
+    margin-top: -2rem;
     margin-right: -5rem;
     background: $black;
     color: white;
