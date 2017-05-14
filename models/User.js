@@ -23,6 +23,12 @@ const userSchema = new Schema({
   }
 });
 
+userSchema.virtual('gravatar').get(function(){
+  const hash = md5(this.email);
+  //https://es.gravatar.com/site/implement/images/
+  return `https://gravatar.com/avatar/${hash}?=200&d=retro&r=g`;
+});
+
 userSchema.plugin(passportLocalMongoose, { usernameField: 'email' })
 userSchema.plugin(mongodbErrorHandler);
 
