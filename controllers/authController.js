@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const promisify = require('es6-promisify');
 const crypto = require('crypto'); //nodejs module
 const User = mongoose.model('User');
+const mail = require('../handlers/mail');
 
 exports.login = passport.authenticate('local', {
   failureRedirect: '/login',
@@ -34,14 +35,22 @@ exports.forgot = async (req, res) => {
     req.flash('error', 'No account with that email exists');
     return res.redirect('/login');
   }
+
   // 2. Set reset tokens and expiry on their accout
   user.resetPasswordToken = crypto.randomBytes(20).toString('hex');
   user.resetPasswordExpires = Date.now() + 3600000 // 1 hour from now
   await user.save();
+
   // 3. Send them an email with the token
-  /** Sacar esto ehhhh!!! **/
   const resetURL = `http://${req.headers.host}/account/reset/${user.resetPasswordToken}`;
-  req.flash('success', `You have been emailed a password reset link ${resetURL}`)
+  await mail.send({
+    user,
+    subject: 'Password reset',
+    resetURL,
+    filename: 'password-reset',
+  });
+  req.flash('success', `You have been emailed a password reset link`)
+
   // 4. redirect to login page
   res.redirect('/login');
 }
@@ -49,7 +58,7 @@ exports.forgot = async (req, res) => {
 exports.reset = async (req, res) => {
   const user = await User.findOne({
     resetPasswordToken: req.params.token,
-    resetPasswordExpires: { $gt: Date.now() } //$gt: greather than 
+    resetPasswordExpires: { $gt: Date.now() } //$gt: greather than
   });
   if(!user) {
     req.flash('error', 'Password reset is invalid or has expired')
