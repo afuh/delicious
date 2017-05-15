@@ -2,7 +2,11 @@ import '../sass/style.scss';
 
 import { $, $$ } from './modules/bling';
 import autoComplete from './modules/autocomplete';
-import initMap from './modules/initMap';
+import typeAhead from './modules/typeAhead';
 
 autoComplete( $('#address'), $('#lat'), $('#lng') );
+typeAhead( $('.search') );
+
+
+import initMap from './modules/initMap';
 initMap( $('#map') );
