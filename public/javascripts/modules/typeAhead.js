@@ -1,3 +1,4 @@
+/*global window*/
 import axios from 'axios';
 import dompurify from 'dompurify';
 
