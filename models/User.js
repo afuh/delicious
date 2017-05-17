@@ -22,12 +22,14 @@ const userSchema = new Schema({
     trim: true
   },
   resetPasswordToken: String,
-  resetPasswordExpires: Date
+  resetPasswordExpires: Date,
+  hearts: [
+    { type: mongoose.Schema.ObjectId, ref: 'Store' }
+  ]
 });
 
 userSchema.virtual('gravatar').get(function(){
   const hash = md5(this.email);
-  //https://es.gravatar.com/site/implement/images/
   return `https://gravatar.com/avatar/${hash}?=200&d=retro&r=g`;
 });
 
