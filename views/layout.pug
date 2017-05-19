@@ -27,6 +27,9 @@ html
               li.nav__item: a.nav__link(href="/hearts", class=(currentPath.startsWith('/hearts') ? 'nav__link--active' : ''))
                 != h.icon('heart')
                 span.heart-count #{user.hearts && user.hearts.length}
+              li.nav__item: a.nav__link(href="/my-stores", class=(currentPath.startsWith('/my-stores') ? 'nav__link--active' : ''))
+                != h.icon('store')
+                span My stores
               li.nav__item: a.nav__link(href="/logout", class=(currentPath.startsWith('/logout') ? 'nav__link--active' : ''))
                 != h.icon('logout')
                 span Logout

@@ -10,6 +10,7 @@ const { catchErrors } = require('../handlers/errorHandlers');
 
 router.get('/', catchErrors(storeController.getStore));
 router.get('/stores', catchErrors(storeController.getStore));
+router.get('/stores/page/:page', catchErrors(storeController.getStore));
 router.get('/add', authController.isLoggedIn, storeController.addStore);
 
 router.post('/add',
@@ -51,6 +52,7 @@ router.post('/account/reset/:token',
   authController.confirmedPasswords,
   catchErrors(authController.update)
 );
+router.get('/my-stores', authController.isLoggedIn, catchErrors(storeController.myStores));
 
 router.get('/map', storeController.mapPage);
 router.get('/hearts', authController.isLoggedIn, catchErrors(storeController.getHearts));

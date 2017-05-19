@@ -27,6 +27,7 @@
     justify-content: center;
     transition: transform 0.2s;
     border-bottom: 5px solid transparent;
+    white-space: nowrap;
     svg {
       width: 40px;
       transition: all 0.2s;
