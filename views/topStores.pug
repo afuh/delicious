@@ -14,7 +14,7 @@ block content
         tr
           td
             a(href=`/store/${store.slug}`)
-              img(width=200 src=`/uploads/${store.photo || 'store.png'}`, alt=store.name)
+              img(width=200 src=`/uploads/${store.photo || 'store.jpg'}`, alt=store.name)
           td #{i + 1}
           td: a(href=`/store/${store.slug}`)= store.name
           td= store.reviews.length

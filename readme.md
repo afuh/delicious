@@ -6,7 +6,7 @@ See the app [here](https://delicious-app.herokuapp.com)
 
 You can:
   - Create and edit your account.
-  - Reset your password via email.
+  - Reset your password via email confimation.
   - Add and edit your own store.
   - Comment, rate and "heart" stores.
   - View your created stores and your "hearted" ones.
