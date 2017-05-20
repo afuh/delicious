@@ -2,10 +2,8 @@ node_modules/
 .DS_Store
 *.log
 .idea
-haters/
 variables.env
 variables.env.now
-dist
 uploads
-images
+photos
 data
