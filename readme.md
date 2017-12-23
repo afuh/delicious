@@ -2,7 +2,7 @@
 This is the result of the awesome [LearnNode.com](https://learnnode.com) course by @wesbos.
 
 ## Live app
-See the app [here](https://delicious-app.herokuapp.com)
+See the app [here](http://delicious.axelfuhrmann.com)
 
 You can:
   - Create and edit your account.
